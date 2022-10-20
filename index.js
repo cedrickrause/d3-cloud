@@ -59,16 +59,12 @@ module.exports = function() {
         var d = data[i];
         d.x = 0;
         d.y = 0;
-        console.log(d.x, d.y);
         cloudSprite(contextAndRatio, d, data, i);
         if (d.hasText && place(board, d, bounds)) {
           tags.push(d);
           event.call("word", cloud, d);
           if (bounds) cloudBounds(bounds, d);
           else bounds = [{x: d.x + d.x0, y: d.y + d.y0}, {x: d.x + d.x1, y: d.y + d.y1}];
-          // Temporary hack
-          d.x -= size[0] >> 1;
-          d.y -= size[1] >> 1;
         }
       }
       if (i >= n) {
